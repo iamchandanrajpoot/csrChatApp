@@ -16,7 +16,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
     return;
   }
 
-  jwt.sign({ id: user.id }, "secret_key", (err, token) => {
+  jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY, (err, token) => {
     if (err) {
       next(err);
       return;
